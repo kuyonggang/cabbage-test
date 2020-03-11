@@ -1,0 +1,102 @@
+个人实现的一个闭包 ➕ 回调的例子
+后续还需要完善
+-----------------------------------------------------------------------
+闭包是指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义（局部变量）。 —《百度百科》
+是引用了自由变量的函数。这个函数通常被定义在另一个外部函数中，并且引用了外部函数中的变量。
+是一个可调用的对象，它记录了一些信息，这些信息来自于创建它的作用域。
+
+简单理解：
+闭包能够将一个方法作为一个变量去存储，这个方法有能力去访问所在类的自由变量。注：<自由变量>：除了局部变量的其他变量
+Java中闭包实现关键点：
+如何用变量去存储方法？
+	java中能够保存方法的变量指的就是普通的对象
+如何让这个普通对象能够访问所在类的自由变量？
+	纯天然的解决办法是：内部类。内部类能够访问外部类的所有属性及方法。
+隐藏具体实现是内部类的作用之一，如何保证隐藏具体实现的同时还能将闭包传递到外部使用？
+	让内部类实现通用接口，然后将内部类对象向上转型为接口类型。
+上述解决办法就是Java最常用的闭包实现办法（内部类+接口）
+
+闭包的价值在于可以作为函数对象或者匿名函数，持有上下文数据，作为第一级对象进行传递和保存。闭包广泛用于回调函数、函数式编程中。
+
+
+内部类：
+定义在一个类的内部
+package study.ung.edu.ungstudy.javaDemo.testLambda;
+/**
+ * 测试java中的闭包
+ */
+public class TestClosure {
+    public static void main(String[] args) {
+        Food food = new Food();
+        food.getEat().eat();
+        food.getEat().eat();
+        //在内部类是public修饰时，可以通过以下方式
+        Food foodPub = new Food();
+        EatActive eat = foodPub.new EatActive();
+        eat.eat();
+    }
+}
+
+class Food{
+
+    public static final String name = "Food";
+    private static int num = 20;
+
+    public Food() {
+        System.out.println("Delicious Food");
+    }
+
+    public Active getEat() {
+        return new EatActive();
+    }
+
+    private class EatActive implements Active {
+        @Override
+        public void eat() {
+            if (num == 0) {
+                System.out.println("吃货，已经吃没了");
+            }
+            num --;
+            System.out.println("吃货，你吃了一份了");
+        }
+    }
+
+    public void currentNum() {
+        System.out.println("还剩:"+num+"份");
+    }
+}
+
+interface Active{
+    void eat();
+}
+
+局部内部类：
+局部内部类定义在方法中，这时，class EatActive在Food类中是不可见的，修改getEat方法体：
+    public Active getEat() {
+        class EatActive implements Active{
+            @Override
+            public void eat() {
+                if (num == 0) {
+                    System.out.println("吃货，已经吃没了");
+                }
+                num --;
+                System.out.println("吃货，你吃了一份了");
+            }
+        }
+        return new EatActive();
+    }
+
+匿名内部类：
+没有名字的内部类，一般用于创建只使用一次的对象。
+    public Active getEat() {
+        return new Active(){
+            @Override
+            public void eat() {
+                if (num == 0) {
+                    System.out.println("吃货，已经吃没了");
+                }
+                num --;
+                System.out.println("吃货，你吃了一份了");
+            }
+        };
+    }
