@@ -28,6 +28,7 @@ public class TestConstantPoolLocation {
      * @param args
      */
     public static void main(String[] args) {
+        System.out.println(TestConstantPoolLocation.class.getClassLoader().toString());
         System.out.println(Arrays.asList(args));
         //用list保持着引用 防止full gc回收常量池
         List<String> list = new ArrayList<String>();
