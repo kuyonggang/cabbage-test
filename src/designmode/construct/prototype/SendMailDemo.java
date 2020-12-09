@@ -2,6 +2,7 @@ package designmode.construct.prototype;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 /**
  * 类名称：SendMailDemo<br>
@@ -14,6 +15,7 @@ import java.util.Map;
 public class SendMailDemo {
 
     Map students = new LinkedHashMap();
+//    WeakHashMap
 
     public static void main(String[] args) {
         //创建一个原型mail
