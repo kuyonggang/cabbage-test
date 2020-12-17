@@ -16,6 +16,7 @@ public class Param<T1,T2> {
     class B extends A{}
     
     private Class<T1> entityClass;
+
     protected Param() {
         Type type = getClass().getGenericSuperclass();  
         System.out.println("getClass() == " + getClass());  
@@ -28,9 +29,8 @@ public class Param<T1,T2> {
         System.out.println("entityClass = " + entityClass);
         
         B t = new B();  
-        type = t.getClass().getGenericSuperclass();  
-      
-        System.out.println("A is B's super class :" + ((ParameterizedType)type).getActualTypeArguments().length);  
+        type = t.getClass().getGenericSuperclass();
+        System.out.println("A is B's super class :" + ((ParameterizedType)type).getActualTypeArguments().length);
     }
 }
 
