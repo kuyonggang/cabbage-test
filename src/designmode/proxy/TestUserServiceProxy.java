@@ -1,10 +1,28 @@
 package designmode.proxy;
 
+import designmode.proxy.service.IUserService;
+import designmode.proxy.service.IUserService1;
+import designmode.proxy.service.IUserService2;
+import designmode.proxy.service.UserService;
+
+import java.util.Arrays;
+
 public class TestUserServiceProxy {
     public static void main(String[] args) {
-        UserService userService = new UserService();
         UserServiceProxy proxy = new UserServiceProxy();
-        Object proxy1 = proxy.createProxy(userService);
 
+        IUserService userService = new UserService();
+        userService = (IUserService) proxy.createProxy(userService);
+        userService = (IUserService) proxy.createProxy(userService);
+        System.out.println(userService.getAge());
+
+        System.out.println("==========================================");
+        IUserService1 userService1 = (IUserService1) proxy.createProxy(new UserService());
+
+        IUserService2 userService2 = (IUserService2) proxy.createProxy(new UserService());
+        System.out.println(userService2.getIDCard());
+
+        Object obj = new Object();
+        System.out.println(Arrays.toString(obj.getClass().getInterfaces()));
     }
 }

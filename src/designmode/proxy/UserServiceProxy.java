@@ -6,8 +6,7 @@ public class UserServiceProxy {
 
     public Object createProxy(Object proxiedObject){
         Class<?>[] interfaces = proxiedObject.getClass().getInterfaces();
-        DynamicProxyHandler handler = new DynamicProxyHandler(proxiedObject);
-        return Proxy.newProxyInstance(proxiedObject.getClass().getClassLoader(),interfaces,handler);
+        return Proxy.newProxyInstance(proxiedObject.getClass().getClassLoader(),interfaces,new DynamicProxyHandler(proxiedObject));
     }
 
 }
