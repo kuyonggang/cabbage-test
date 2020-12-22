@@ -1,4 +1,4 @@
-package designmode.proxy;
+package designmode.structure.proxy;
 
 import java.lang.reflect.Proxy;
 

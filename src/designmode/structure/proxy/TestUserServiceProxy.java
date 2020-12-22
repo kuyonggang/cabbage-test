@@ -1,9 +1,9 @@
-package designmode.proxy;
+package designmode.structure.proxy;
 
-import designmode.proxy.service.IUserService;
-import designmode.proxy.service.IUserService1;
-import designmode.proxy.service.IUserService2;
-import designmode.proxy.service.UserService;
+import designmode.structure.proxy.service.IUserService;
+import designmode.structure.proxy.service.IUserService1;
+import designmode.structure.proxy.service.IUserService2;
+import designmode.structure.proxy.service.UserService;
 
 import java.util.Arrays;
 
