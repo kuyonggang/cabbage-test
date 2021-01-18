@@ -1,4 +1,4 @@
-package designmode.proxy.service;
+package designmode.structure.proxy.service;
 
 public interface IUserService {
     String getUserName();

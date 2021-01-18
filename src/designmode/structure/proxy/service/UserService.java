@@ -1,4 +1,4 @@
-package designmode.proxy.service;
+package designmode.structure.proxy.service;
 
 public class UserService implements IUserService,IUserService1,IUserService2 {
 
