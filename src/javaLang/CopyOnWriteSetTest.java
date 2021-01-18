@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 public class CopyOnWriteSetTest {
 
     public static void main(String[] args) throws InterruptedException {
-
         CopyOnWriteArraySet<Integer> copyOnWriteArraySet = new CopyOnWriteArraySet();
         copyOnWriteArraySet.add(23);
         copyOnWriteArraySet.add(24);

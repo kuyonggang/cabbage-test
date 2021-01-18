@@ -20,7 +20,7 @@ public class HashSetTest {
         Thread thread0 = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
-                    TimeUnit.SECONDS.sleep(3L);
+                    TimeUnit.SECONDS.sleep(2L);
                 } catch (InterruptedException e) { }
                 hashSet.add(i);
             }
