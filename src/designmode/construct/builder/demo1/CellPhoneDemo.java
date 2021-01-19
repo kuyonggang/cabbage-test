@@ -1,4 +1,4 @@
-package designmode.construct.builder;
+package designmode.construct.builder.demo1;
 
 /**
  * 类名称：CellPhoneDemo<br>

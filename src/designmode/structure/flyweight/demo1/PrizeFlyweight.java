@@ -1,4 +1,4 @@
-package designmode.structure.flyweight;
+package designmode.structure.flyweight.demo1;
 
 /**
  * 类名称：PrizeFlyweight<br>

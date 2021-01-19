@@ -1,16 +1,17 @@
-package designmode.construct.builder;
+package designmode.construct.builder.demo1;
 
 /**
- * 类名称：Mx4Pro<br>
- * 类描述：<br>
+ * 类名称：Mate7<br>
+ * 类描述：Mate7产品类,基本数据类型由继承父类来<br>
  * 创建时间：2020年04月14日<br>
  *
  * @author kuyonggang
  * @version 1.0.0
  */
-public class Mx4Pro extends AbstractCellPhone{
-    public Mx4Pro() {
-        System.out.println("这是华为Mx4Pro手机");
+public class Mate7 extends AbstractCellPhone{
+
+    public Mate7() {
+        System.out.println("这是华为Meta7手机");
     }
 
     public String toString(){

@@ -1,4 +1,4 @@
-package designmode.structure.flyweight;
+package designmode.structure.flyweight.demo1;
 
 import java.util.HashMap;
 import java.util.Map;
